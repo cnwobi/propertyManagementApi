@@ -18,19 +18,14 @@ public class Room{
     private Long id;
     private String name;
     private  byte[] photo;
-
-    @OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
-    private Set<RoomCategory> roomCategories = new HashSet<>();
+    private String description;
+@ManyToOne
+   private RoomCategory roomCategory;
 
   /*  @OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
     private Set<Booking> bookings = new HashSet<>();
 */
-    @OneToOne
-    private Pricing pricing;
 
-    public Room addRoomCategory(RoomCategory roomCategory){
-        roomCategory.setRoom(this);
-        roomCategories.add(roomCategory);
-        return this;
-    }
+
+
 }

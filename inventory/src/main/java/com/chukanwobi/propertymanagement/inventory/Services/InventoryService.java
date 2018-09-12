@@ -3,7 +3,6 @@ package com.chukanwobi.propertymanagement.inventory.Services;
 
 import com.chukanwobi.propertymanagement.inventory.models.Room;
 import com.chukanwobi.propertymanagement.inventory.models.RoomCategory;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.List;
 
@@ -27,7 +26,7 @@ public interface InventoryService {
      * @param id the category ID
      * @return the category
      */
-    RoomCategory findRoomCategoryById(Long id);
+    RoomCategory findCategoryById(Long id);
 
     /**
      * Add a room to the system.
@@ -35,12 +34,22 @@ public interface InventoryService {
      * @param room the room to add
      */
     void addRoom(Room room);
-/**
-* Return all rooms in a given category id
- *
- * @param id the category id
- * @return all the rooms belonging with the given category
- */
-List<Room> findRoomsByCategory(Long id);
 
+    /**
+     * Return all rooms in a given category id
+     *
+     * @param id the category id
+     * @return all the rooms belonging with the given category
+     */
+    List<Room> findRoomsByCategoryId(Long id);
+
+    /**
+     * Answers the room with the given identifier.
+     *
+     * @param roomId the room ID
+     * @return the room with the given {@code roomId}
+     * <p>
+     * if the room does not exist
+     */
+    public Room findRoomById(Long roomId);
 }
