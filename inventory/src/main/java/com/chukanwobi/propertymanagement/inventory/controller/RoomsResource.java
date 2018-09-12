@@ -20,7 +20,7 @@ public class RoomsResource {
 
     @GetMapping( "/{roomId}")
     public RoomDTO getRoom(@PathVariable String roomId){
-        Room room =  inventoryService.findRoomById(Long.valueOf(roomId));
+       var room =  inventoryService.findRoomById(Long.valueOf(roomId));
         return new RoomDTO(room);
     }
 }
